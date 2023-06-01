@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ItemServiceMySQL implements ItemService {
@@ -36,7 +35,7 @@ public class ItemServiceMySQL implements ItemService {
     }
 
     @Override
-    public Optional<Item> findById(int itemId) {
-        return itemRepository.findById(itemId);
+    public Item findById(int itemId) {
+        return itemRepository.findById(itemId).orElse(null);
     }
 }
